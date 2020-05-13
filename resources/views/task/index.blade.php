@@ -57,6 +57,10 @@
                         <input type="text" name="link" class="form-control mb-2" id="inlineFormInput" required>
                     </div>
                     <div class="col-auto">
+                        <span class="text-dark pl-2">Deadline</span>
+                        <input type="text" name="deadline" class="form-control mb-2" id="inlineFormInput" required>
+                    </div>
+                    <div class="col-auto">
                         <span class="text-dark pl-2">Comment</span>
                         <input type="text" name="comment" class="form-control mb-2" id="inlineFormInput" required>
                     </div>
@@ -98,7 +102,8 @@
                             <th>Assigned</th>
                             <th>Level</th>
                             <th>Status</th>
-                            <th>title</th>
+                            <th>Title</th>
+                            <th>Deadline</th>
                             <th>Comment</th>
 
                             @if( Auth::user()->isAdmin() )
@@ -112,7 +117,8 @@
                             <th>Assigned</th>
                             <th>Level</th>
                             <th>Status</th>
-                            <th>title</th>
+                            <th>Title</th>
+                            <th>Deadline</th>
                             <th>Comment</th>
 
                             @if( Auth::user()->isAdmin() )
@@ -131,7 +137,9 @@
                             <td class="  word-break name">{{$task->user->name}}</td>
                             <td class="  word-break taskLevel">{{$task->level->name}}</td>
                             <td class="  word-break taskStatus">{{$task->status->name}}</td>
+                            <!-- <td class=" word-break link">{{$task->link}}</td> -->
                             <td class=" word-break link"> <a href="{{$task->link}}"> {{$task->title}} </a> </td>
+                            <td class=" word-break deadline">{{$task->deadline}}</td>
                             <td class=" word-break comment ">{{$task->comment}}</td>
 
 
@@ -222,6 +230,10 @@
                         <input type="text" name="link" class="form-control" id="task-modal-input-link" required>
                     </div>
                     <div class="form-group">
+                        <label class="col-form-label" for="task-modal-input-deadline">Deadline</label>
+                        <input type="text" name="deadline" class="form-control" id="task-modal-input-deadline" required>
+                    </div>
+                    <div class="form-group">
                         <label class="col-form-label" for="task-modal-input-comment">Comment</label>
                         <input type="text" name="comment" class="form-control" id="task-modal-input-comment" required>
                     </div>
@@ -271,6 +283,7 @@
             var name = row.children(".name").text();
             var comment = row.children(".comment").text();
             var link = row.children(".link").text();
+            var deadline = row.children(".deadline").text();
             var taskLevelName = row.children(".taskLevel").text();
             var taskStatusName = row.children(".taskStatus").text();
 
@@ -282,6 +295,7 @@
             $("#task-modal-input-id").val(id);
             $("#task-modal-input-name").val(name);
             $("#task-modal-input-link").val(link);
+            $("#task-modal-input-deadline").val(deadline);
             $("#task-modal-input-comment").val(comment);
 
 

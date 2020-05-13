@@ -54,6 +54,7 @@ class TaskController extends Controller
         $task->task_status_id = $request->task_status_id;
         $task->link = $request->link;
         $task->title = $request->title;
+        $task->deadline = $request->deadline;
         $task->comment = $request->comment;
 
         $user = User::find($request->user_id);
@@ -98,6 +99,7 @@ class TaskController extends Controller
         $task->task_level_id = $request->task_level_id;
         $task->task_status_id = $request->task_status_id;
         $task->link = $request->link;
+        $task->deadline = $request->deadline;
         $task->comment = $request->comment;
         $task->save();
         return back();
@@ -113,9 +115,9 @@ class TaskController extends Controller
     {
         $task->delete();
 
-        $user = User::find($task->user_id);
-        $user->role_id = 4;
-        $user->save();
+        // $user = User::find($task->user_id);
+        // $user->role_id = 4;
+        // $user->save();
 
         return  back();
     }

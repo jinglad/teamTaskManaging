@@ -27,3 +27,7 @@ Route::get('task-level-list-api', 'TaskLevelController@taskLevelListApi')->name(
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
